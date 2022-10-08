@@ -1,31 +1,15 @@
-import java.util.Scanner;
-import java.text.DecimalFormat;
-
 public class TipCalculator {
-   /*
 
-    Your TipCalculator class should have the following methods that calculate and return the values described below; you should RETURN all values
-    -- do not add print statements in your TipCalculator class, all printing should be handled by the code in your main method (as we will learn later,
-    it's best practice to have your program's "logic" in one class, and input/output in another):
-
-getTotalBillBeforeTip():  getter method that returns the totalBillBeforeTip instance variable
-getTipPercentage():  getter method that returns the tipPercentage instance variable
-addMeal(double cost): method that increments totalBillBeforeTip by cost and returns no value
-tipAmount(): method that calculates and returns a double representing the total tip amount added to the bill
-totalBill(): method that calculates and returns a double representing the group’s total bill including tip
-perPersonCostBeforeTip(): method that calculates and returns a double representing the per person cost before tip
-perPersonTipAmount(): method that calculates and returns a double representing the per person tip amount
-perPersonTotalCost(): method that calculates and returns a double representing the total cost per person
-
-    */
+    //instance variables
     private int numPeople;
     private int tipPercentage;
     private double totalBillBeforeTip;
 
+    //constructor method for the TipCalculator class
     public TipCalculator(int numPeople, int tipPercentage){
         this.numPeople = numPeople;
         this.tipPercentage = tipPercentage;
-        totalBillBeforeTip = 0;
+        this.totalBillBeforeTip = 0;
     }
 
     //getter method that returns the totalBillBeforeTip instance variable
@@ -45,21 +29,28 @@ perPersonTotalCost(): method that calculates and returns a double representing t
 
     //method that calculates and returns a double representing the total tip amount added to the bill
     public double tipAmount(){
-        return (tipPercentage / 100) * totalBillBeforeTip;
+        return (tipPercentage / 100.0) * totalBillBeforeTip;
     }
 
-    //method that calculates and returns a double representing the per person cost before tip
+    //method that calculates and returns a double representing the group’s total bill including tip
+    public double totalBill(){
+        return totalBillBeforeTip + tipAmount();
+    }
+
+    //method that calculates and returns a double representing the per-person cost before tip
     public double perPersonCostBeforeTip(){
         return totalBillBeforeTip / numPeople;
     }
 
-    //method that calculates and returns a double representing the per person tip amount
+    //method that calculates and returns a double representing the per-person tip amount
     public double perPersonTipAmount(){
-        return 5.5;
+        return tipAmount()/numPeople;
     }
 
     //method that calculates and returns a double representing the total cost per person
     public double perPersonTotalCost(){
-        return 5.5;
+        return totalBill()/numPeople;
     }
+
+
 }
