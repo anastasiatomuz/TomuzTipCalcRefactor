@@ -51,6 +51,4 @@ public class TipCalculator {
     public double perPersonTotalCost(){
         return totalBill()/numPeople;
     }
-
-
 }
