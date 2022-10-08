@@ -18,7 +18,6 @@ public class TipCalculatorRunner {
         //creates an instance of the TipCalculator class
         TipCalculator calc = new TipCalculator(numPeople, tipPercentage);
 
-
         //prompts user to enter one item cost
         System.out.print("Enter a cost in dollar and cent, e.g. 12.50 (-1 to end): ");
         double newItem = scan.nextDouble();
@@ -35,7 +34,6 @@ public class TipCalculatorRunner {
                 calc.addMeal(newItem);
             }
         }
-
 
         //formatting
         String formatBillNoTip = formatter.format(calc.getTotalBillBeforeTip());
